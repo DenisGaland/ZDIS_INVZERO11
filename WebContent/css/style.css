@@ -1,0 +1,74 @@
+/* Enter your custom styles here */
+.sapTntNavLIGroupItem:not (.sapTntNavLIItemDisabled ) {
+	background-color: #E8E8E8;
+}
+
+.tileborder {
+	border: 2px solid #b8b6b8 !important;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+.promo {
+	color : red !important;
+}
+
+.searchfield2 {
+	margin-left: 150px;
+	margin-top: 30px;
+}
+
+.sapMInputBaseInner {
+	padding: 0 0!important;
+	
+	}
+.sapMInputBaseInner:not(.sapMInputBaseReadonlyInner):not(.sapMInputBaseStateInner):not(.sapMInputBaseDisabledInner){
+	height: 25px!important;
+	
+	}
+	
+.sapMInputDescription>span {
+
+    line-height: 1.5rem!important
+    
+}
+
+.sapTntNavLIGroupItem>.sapMText {
+    padding-left: 4rem!important;
+}
+
+.twolines {
+	position: absolute;
+	
+}
+
+.color {
+
+	color : blue;
+
+}
+
+.color2 {
+
+	color : red;
+}
+
+
+.uniteof {
+	    padding-top: 1rem;
+}
+
+.sapMLIBSelectD>.sapUiIcon {
+
+    padding-bottom: 70px!important;
+
+}
+
+.tableItems tr:first-child td {
+    background-color: lightgreen;
+}  
+
+.tableItems th {
+    background-color: deepskyblue;
+}

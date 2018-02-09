@@ -1,0 +1,109 @@
+<mvc:View controllerName="Press_Shop_Fiori1.controller.Master" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core" xmlns:m="sap.m" xmlns:core="sap.ui.core" html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:ui="sap.ui.commons" xmlns:tnt="sap.tnt" displayBlock="true">
+	<m:App>
+		<m:pages>
+			<m:Page showHeader="false" enableScrolling="false" class="sapUiSizeCompact">
+				<m:content>
+					<m:Label text="{i18n>confirm}" width="100%" id="CONFIRM" visible="false"/>
+					<m:Label text="{i18n>yes}" width="100%" id="YES" visible="false"/>
+					<m:Label text="{i18n>no}" width="100%" id="NO" visible="false"/>
+					<!-- Begin Header -->
+					<m:HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center">
+						<m:items>
+							<sap.ui.core:Icon src="sap-icon://home" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
+							<m:Label text="Label" width="100%" id="__PLANT" design="Bold"/>
+							<m:HBox width="10%" id="Space6" alignContent="Start" alignItems="Center"></m:HBox>
+							<m:HBox width="100%" id="TYPEFLUX" alignContent="Start" alignItems="Center" visible="false">
+								<m:items>
+									<m:HBox width="1%" id="Space5" alignContent="Start" alignItems="Center"></m:HBox>
+									<sap.ui.core:Icon src="sap-icon://supplier" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon2"/>
+									<m:HBox width="2%" id="Space71" alignContent="Start" alignItems="Center"></m:HBox>
+									<m:Label text="" width="100%" id="TYPE" design="Bold"/>
+									<m:Label text="" width="100%" id="TYPECODE" visible="false"/>
+								</m:items>
+							</m:HBox>
+						</m:items>
+					</m:HBox>
+					<!-- End Header -->
+					<!-- Begin scan input -->
+					<m:HBox width="100%" id="Article" alignContent="Start" alignItems="Center" visible="true">
+						<m:items>
+							<m:Label text="{i18n>scanean}" width="100%" id="__label0_copy" design="Bold" textAlign="Center"/>
+							<m:SearchField width="100%" id="SearchArt" placeholder="" search="searchArt"/>
+						</m:items>
+					</m:HBox>
+					<!-- End scan input -->
+					<!-- Begin Table -->
+					<!--<m:HBox width="100%" id="TOOL_BAR" alignContent="Start" alignItems="Center" visible="false">
+				<m:Toolbar>
+					<m:content>
+						<m:Button text="{i18n>validinv}" icon="sap-icon://save" tooltip="Recept selected items" press="Validate" type="Emphasized"/>
+						<m:Button icon="sap-icon://delete" tooltip="clear selection" press="ClearBox" text="{i18n>viderinv}" type="Emphasized"/>
+						<m:Button icon="sap-icon://cancel" tooltip="cancel last selection" press="CancelLast" text="{i18n>cancel_last}" type="Emphasized"/>
+					</m:content>
+				</m:Toolbar>
+			</m:HBox>-->
+					<m:VBox width="100%" id="TOOL_BAR" alignContent="Start" alignItems="Center" visible="false">
+						<m:HBox width="100%" alignContent="Start" alignItems="Center">
+							<m:Toolbar>
+								<m:content>
+									<m:Button text="{i18n>validinv}" icon="sap-icon://save" tooltip="Recept selected items" press="Validate" type="Emphasized"/>
+									<m:Button icon="sap-icon://delete" tooltip="clear selection" press="ClearBox" text="{i18n>viderinv}" type="Emphasized"/>
+								</m:content>
+							</m:Toolbar>
+						</m:HBox>
+						<m:HBox width="100%" alignContent="Start" alignItems="Center">
+							<m:Toolbar>
+								<m:Button icon="sap-icon://cancel" tooltip="cancel last selection" press="CancelLast" text="{i18n>cancel_last}" type="Emphasized"/>
+							</m:Toolbar>
+						</m:HBox>
+					</m:VBox>
+					<m:Button text="Back" icon="sap-icon://undo" tooltip="Recept selected items" press="BackInit" id="Back" type="Emphasized" width="100px"
+						visible="false"/>
+					<m:ScrollContainer horizontal="true" vertical="true" focusable="true" height="370px">
+						<m:Table id="table1" items="{itemModel>/items}" selectionMode="None" visibleRowCount="10" ariaLabelledBy="title" width="100%"
+							visible="false" class="tableItems">
+							<m:columns>
+								<m:Column width="3rem">
+									<m:Label text="{i18n>ean}"/>
+								</m:Column>
+								<m:Column width="1rem">
+									<m:Label text="Status"/>
+								</m:Column>
+								<m:Column width="1rem" class="yellow">
+									<m:Label text="{i18n>qty}({Model2>/Sum})"/>
+								</m:Column>
+								<m:Column width="1rem" class="yellow">
+									<m:Label text="{i18n>stock}"/>
+								</m:Column>
+								<m:Column width="1rem">
+									<m:Label text="{i18n>delta}"/>
+								</m:Column>
+							</m:columns>
+							<m:items>
+								<m:ColumnListItem>
+									<m:cells>
+										<m:Text text="{itemModel>Gtin}"/>
+										<m:Text text="{itemModel>Mstae}"/>
+										<m:Text text="{itemModel>Menge_f}" class="bold"/>
+										<m:Text text="{itemModel>Labst_f}" class="bold"/>
+										<m:Text text="{itemModel>Qty_miss}"/>
+									</m:cells>
+								</m:ColumnListItem>
+							</m:items>
+						</m:Table>
+					</m:ScrollContainer>
+					<!-- Begin Table -->
+					<!--<m:HBox width="100%" id="Scroll" alignContent="Start" alignItems="Center" visible="false">
+						<m:HBox width="1000000%" id="Spac" alignContent="Start" alignItems="Center"></m:HBox>
+						<m:VBox width="100%" id="Scollvert" alignContent="Start" alignItems="Center">
+							<sap.ui.core:Icon src="sap-icon://collapse-group" size="1em" xmlns:sap.ui.core="sap.ui.core" id="icon11"/>
+							<sap.ui.core:Icon src="sap-icon://expand-group" size="1em" xmlns:sap.ui.core="sap.ui.core" id="icon10"/>
+						</m:VBox>
+					</m:HBox>-->
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>
