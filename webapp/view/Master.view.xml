@@ -3,7 +3,7 @@
 	xmlns:f="sap.ui.layout.form" xmlns:ui="sap.ui.commons" xmlns:tnt="sap.tnt" displayBlock="true">
 	<m:App>
 		<m:pages>
-			<m:Page showHeader="false" enableScrolling="false" class="sapUiSizeCompact">
+			<m:Page showHeader="false" enableScrolling="false" class="sapUiSizeCompact" binding="{GETPLANT>/S_T001WSet('03')}">
 				<m:content>
 					<m:Label text="{i18n>confirm}" width="100%" id="CONFIRM" visible="false"/>
 					<m:Label text="{i18n>yes}" width="100%" id="YES" visible="false"/>
@@ -12,7 +12,8 @@
 					<m:HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center">
 						<m:items>
 							<sap.ui.core:Icon src="sap-icon://home" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
-							<m:Label text="Label" width="100%" id="__PLANT" design="Bold"/>
+							<!--<m:Label text="Label" width="100%" id="__PLANT" design="Bold"/>-->
+							<m:Label text="{GETPLANT>EPlant} {GETPLANT>ET001w/Name1}" width="100%" design="Bold"/>
 							<m:HBox width="10%" id="Space6" alignContent="Start" alignItems="Center"></m:HBox>
 							<m:HBox width="100%" id="TYPEFLUX" alignContent="Start" alignItems="Center" visible="false">
 								<m:items>

@@ -11,8 +11,18 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.32.0"
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZGET_PLANT_SRV": {
+				"uri": "/sap/opu/odata/sap/ZGET_PLANT_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -60,6 +70,16 @@
 				"settings": {
 					"bundleName": "Press_Shop_Fiori1.i18n.i18n"
 				}
+			},
+			"GETPLANT": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneTime",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZGET_PLANT_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
@@ -71,7 +91,7 @@
 		}
 	},
 	"sap.platform.abap": {
-		"uri": "/sap/bc/ui5_ui5/sap/zdis_invzero11/webcontent",
+		"uri": "/sap/bc/ui5_ui5/sap/zdis_invzero11/webapp",
 		"_version": "1.1.0"
 	}
 }

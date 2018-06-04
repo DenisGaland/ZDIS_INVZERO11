@@ -19,7 +19,7 @@ sap.ui.define([
 			});
 			oView.setModel(i18nModel, "i18n");
 			var oController = oView.getController();
-			var osite = oView.byId("__PLANT");
+			/*var osite = oView.byId("__PLANT");
 			var URL = "/sap/opu/odata/sap/ZGET_PLANT_SRV/";
 			var OData = new ODataModel(URL, true);
 			var query = "/S_T001WSet(Type='04')";
@@ -46,7 +46,8 @@ sap.ui.define([
 				MessageBox.error(JSON.parse(error.response.body).error.message.value, {
 					title: "Error"
 				});
-			});
+			});*/
+			oController.GetData();
 		},
 
 		ClearBox: function() {
@@ -124,8 +125,6 @@ sap.ui.define([
 			var searchString = null;
 			var URL = null;
 			var infoMsg = null;
-			oTable.setVisible(true);
-			oView.byId("TOOL_BAR").setVisible(true);
 			if (material === "deleteLast") {
 				searchString = "R" + material + "/" + "04";
 			} else {
@@ -136,7 +135,7 @@ sap.ui.define([
 			BusyIndicator.show();
 			OData.read(URL, function(response) {
 				BusyIndicator.hide();
-				if (response.results[0] == null && material !== "deleteLast") {
+				if (response.results[0] == null && material !== "deleteLast" && material != undefined) {
 					infoMsg = oView.getModel("i18n").getResourceBundle().getText("article_already_scanned");
 					MessageBox.show(infoMsg, {
 						icon: MessageBox.Icon.ERROR,
@@ -179,6 +178,8 @@ sap.ui.define([
 					});
 					model.setSizeLimit(100);
 					oView.setModel(model, "itemModel");
+					oTable.setVisible(true);
+					oView.byId("TOOL_BAR").setVisible(true);
 					jQuery.sap.delayedCall(500, this, function() {
 						oView.byId("SearchArt").focus();
 					});
